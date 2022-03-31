@@ -7,12 +7,16 @@
     <title>Fractal tree generator</title>
     <style>
       body {
-        background: rgb(0, 0, 0);
+        width: 100vw;
+        background: rgb(255, 255, 255);
       }
       ::-webkit-scrollbar {
         background: rgb(21, 21, 21);
       }
+  
       input {
+        display: block;
+        margin: auto;
         width: 35vw;
       }
     </style>
@@ -23,10 +27,10 @@
       type="number"
       name="num"
       id="num"
-      value="16"
+      value="11"
       placeholder="Lower number = better looking result DO NOT GO BELOW 4"
     />
-    <canvas id="my_canvas" width="1300" height="1000"></canvas>
+    <canvas id="my_canvas" ></canvas>
 
     <script src="js.js"></script>
   </body>

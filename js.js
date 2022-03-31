@@ -1,15 +1,18 @@
 const canvas = document.getElementById("my_canvas");
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
 let ctx = canvas.getContext("2d");
 let range = document.getElementById("range");
 let num = document.getElementById("num");
+
 //     X and Y coordinates where the branch starts,  length of its branch and angle
 function draw(startX, startY, len, angle, branchWidth) {
   ctx.lineWidth = branchWidth;
 
   ctx.beginPath();
   ctx.save();
-
-  ctx.strokeStyle = "white";
+  
+  ctx.strokeStyle = "black";
 
   ctx.translate(startX, startY);
   ctx.rotate((angle * range.value) / 180);
@@ -17,13 +20,8 @@ function draw(startX, startY, len, angle, branchWidth) {
   ctx.lineTo(0, -len);
   ctx.stroke();
 
-  ctx.shadowBlur = 16;
-  const colArr = [
-    "rgba(135, 207, 235, 0.5)",
-    "rgba(255, 255, 235, 0.3)",
-    "violet",
-    "blue",
-  ];
+  ctx.shadowBlur = 18;
+  const colArr = ["rgba(135, 207, 235, 0.8)", "gray", "black"];
   const rand = Math.floor(Math.random() * colArr.length);
   ctx.shadowOpacity = 0.2;
   ctx.shadowColor = colArr[rand];
@@ -38,6 +36,7 @@ function draw(startX, startY, len, angle, branchWidth) {
     draw(0, -len, len * 0.8, angle + 15, branchWidth * 0.8);
   }
   ctx.restore();
+ 
 }
 
 range.addEventListener("input", function () {
